@@ -17,7 +17,15 @@ class MainPage extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           backgroundColor: Colors.orangeAccent,
-          title: Text('Flutter Firestore Demo'),
+          /*title: StreamBuilder<DocumentSnapshot>(
+              stream: users.doc('TAnwPODubkP037h2TKw4').snapshots(),
+              builder: (context, snapshot) {
+                if (snapshot.hasData)
+                  return Text(snapshot.data!.data()['age'].toString());
+                else
+                  return Text('Loading');
+              }),*/
+          title: Text('Tambah 1 Tahun'),
         ),
         backgroundColor: Colors.white,
         body: Stack(
@@ -43,7 +51,7 @@ class MainPage extends StatelessWidget {
 
                 ///For Realtime Get
                 StreamBuilder<QuerySnapshot>(
-                    stream: users.snapshots(),
+                    stream: users.orderBy('age', descending: true).snapshots(),
                     builder: (_, snapshot) {
                       if (snapshot.hasData) {
                         return Column(
@@ -51,6 +59,14 @@ class MainPage extends StatelessWidget {
                               .map((e) => ItemCard(
                                     e.data()['name'],
                                     e.data()['age'],
+                                    onUpdate: () {
+                                      users
+                                          .doc(e.id)
+                                          .update({'age': e.data()['age'] + 1});
+                                    },
+                                    onDelete: () {
+                                      users.doc(e.id).delete();
+                                    },
                                   ))
                               .toList(),
                         );

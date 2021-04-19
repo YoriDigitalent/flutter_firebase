@@ -6,17 +6,12 @@ class ItemCard extends StatelessWidget {
   final String name;
   final int age;
   //// Pointer to Update Function
-  //final Function onUpdate;
+  final Function onUpdate;
   //// Pointer to Delete Function
-  //final Function onDelete;
+  final Function onDelete;
 
-  /*ItemCard(this.name, this.age,
-      {required this.onUpdate, required this.onDelete});*/
-
-  ItemCard(
-    this.name,
-    this.age,
-  );
+  ItemCard(this.name, this.age,
+      {required this.onUpdate, required this.onDelete});
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +56,7 @@ class ItemCard extends StatelessWidget {
                     )),
                     onPressed: () {
                       // ignore: unnecessary_null_comparison
-                      //if (onUpdate != null) onUpdate();
+                      if (onUpdate != null) onUpdate();
                     }),
               ),
               SizedBox(
@@ -78,7 +73,7 @@ class ItemCard extends StatelessWidget {
                     )),
                     onPressed: () {
                       // ignore: unnecessary_null_comparison
-                      //  if (onDelete != null) onDelete();
+                      if (onDelete != null) onDelete();
                     }),
               )
             ],
