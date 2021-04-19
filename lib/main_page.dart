@@ -16,7 +16,7 @@ class MainPage extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue[900],
+          backgroundColor: Colors.orangeAccent,
           title: Text('Flutter Firestore Demo'),
         ),
         backgroundColor: Colors.white,
@@ -42,7 +42,7 @@ class MainPage extends StatelessWidget {
                     }),*/
 
                 ///For Realtime Get
-                /*StreamBuilder<QuerySnapshot>(
+                StreamBuilder<QuerySnapshot>(
                     stream: users.snapshots(),
                     builder: (_, snapshot) {
                       if (snapshot.hasData) {
@@ -51,15 +51,13 @@ class MainPage extends StatelessWidget {
                               .map((e) => ItemCard(
                                     e.data()['name'],
                                     e.data()['age'],
-                                    onDelete: (),
-                                    onUpdate: (),
                                   ))
                               .toList(),
                         );
                       } else {
                         return Text('Loading');
                       }
-                    }),*/
+                    }),
                 SizedBox(
                   height: 150,
                 )
@@ -107,7 +105,7 @@ class MainPage extends StatelessWidget {
                         child: RaisedButton(
                             shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(8)),
-                            color: Colors.blue[900],
+                            color: Colors.orange,
                             child: Text(
                               'Add Data',
                               style: GoogleFonts.poppins(

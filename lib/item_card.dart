@@ -6,12 +6,17 @@ class ItemCard extends StatelessWidget {
   final String name;
   final int age;
   //// Pointer to Update Function
-  final Function onUpdate;
+  //final Function onUpdate;
   //// Pointer to Delete Function
-  final Function onDelete;
+  //final Function onDelete;
 
-  ItemCard(this.name, this.age,
-      {required this.onUpdate, required this.onDelete});
+  /*ItemCard(this.name, this.age,
+      {required this.onUpdate, required this.onDelete});*/
+
+  ItemCard(
+    this.name,
+    this.age,
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +26,7 @@ class ItemCard extends StatelessWidget {
       padding: const EdgeInsets.all(5),
       decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.blue)),
+          border: Border.all(color: Colors.orange)),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -56,7 +61,7 @@ class ItemCard extends StatelessWidget {
                     )),
                     onPressed: () {
                       // ignore: unnecessary_null_comparison
-                      if (onUpdate != null) onUpdate();
+                      //if (onUpdate != null) onUpdate();
                     }),
               ),
               SizedBox(
@@ -73,7 +78,7 @@ class ItemCard extends StatelessWidget {
                     )),
                     onPressed: () {
                       // ignore: unnecessary_null_comparison
-                      if (onDelete != null) onDelete();
+                      //  if (onDelete != null) onDelete();
                     }),
               )
             ],
